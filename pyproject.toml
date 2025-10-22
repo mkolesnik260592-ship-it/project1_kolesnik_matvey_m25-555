@@ -23,7 +23,7 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.ruff]
-line-length = 88
+line-length = 150
 target-version = "py311"
 exclude = ["venv", ".venv", "dist", "__pycache__"]
 
