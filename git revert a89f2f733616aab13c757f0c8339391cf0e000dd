@@ -1,0 +1,41 @@
+[33mcommit a89f2f733616aab13c757f0c8339391cf0e000dd[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Matthew <mkolesnik260592@gmail.com>
+Date:   Fri Oct 24 21:13:45 2025 +0300
+
+    Добавил в player_actions перемещение и предметы, записал статус в README
+
+[33mcommit 9161f529fe1bb9214b3833260932cd6a794b70fb[m
+Author: Matthew <mkolesnik260592@gmail.com>
+Date:   Thu Oct 23 21:20:52 2025 +0300
+
+    Создал основной игровой цикл в main, внес изменения в utils и player_actions
+
+[33mcommit e19cc683d8c23bf8f8501cd2c34d0f46364fa1e8[m
+Author: Matthew <mkolesnik260592@gmail.com>
+Date:   Wed Oct 22 20:44:09 2025 +0300
+
+    создана файловая структура, определен словарь ROOMS, настроен Ruff c line-lenght = 150, обновил README
+
+[33mcommit e771ff37c9a5c5f1d330f791b69b3838a52e88de[m
+Author: Matthew <mkolesnik260592@gmail.com>
+Date:   Mon Oct 20 19:25:20 2025 +0300
+
+    Исправил шебанг в main.py
+
+[33mcommit 8b90fa9d8c02c577bd0ca5c757341b972bbb38a4[m
+Author: Matthew <mkolesnik260592@gmail.com>
+Date:   Mon Oct 20 18:50:05 2025 +0300
+
+    Переименовал дирректорию проекта
+
+[33mcommit 7e83a9fb1c09853042952a924b554b55a2f88098[m
+Author: Matthew <mkolesnik260592@gmail.com>
+Date:   Mon Oct 20 18:23:00 2025 +0300
+
+    Инициализировал, подготовил и опубликовал пакет
+
+[33mcommit 532ede01c8877af97d122c5d980344887369f633[m
+Author: Matthew <mkolesnik260592@gmail.com>
+Date:   Mon Oct 20 14:24:15 2025 +0300
+
+    first commit
