@@ -1,8 +1,32 @@
 #!/usr/bin/env python3
 
-from constants import ROOMS
-from utils import describe_current_room
-from player_actions import show_inventory, get_input
+from player_actions import get_input, move_player, show_inventory, take_item, use_item
+from utils import describe_current_room, solve_puzzle
+
+
+def process_command(game_state, command):
+    parts = command.split() #делим комманду
+    player_command = parts[0] if parts else "" #получение команды
+    argument = " ".join(parts[1:]) if len(parts) > 1 else "" #получение аргумента
+
+    match player_command:
+        case "look":
+            describe_current_room(game_state)
+        case "inventory":
+            show_inventory(game_state)
+        case "go":
+            move_player(game_state, argument)
+        case "take":
+            take_item(game_state, argument)
+        case "use":
+            use_item(game_state, argument)
+        case "solve":
+            solve_puzzle(game_state)
+        case "quit":
+            game_state['game_over'] = True
+        case _:
+            print("Неизвестная команда. Попробуйте: look, inventory, go <направление>, take <предмет>, use <предмет>, solve, quit")
+
 
 def main():
    # Создаем состояние игры
@@ -20,13 +44,12 @@ def main():
     while not game_state['game_over']:
         command = get_input()
 
-        if command == "quit":
+        if command in ["quit", "exit"]:
             print("Спасибо за игру!")
             break
-        elif command == "inventory":
-            show_inventory(game_state)
-        else:
-            print("Неизвестная команда. Попробуйте 'inventory' или 'quit'.")
+
+        process_command(game_state, command)
+
 
 if __name__ == "__main__":
     main()

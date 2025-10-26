@@ -1,5 +1,6 @@
 from constants import ROOMS
 
+
 def describe_current_room(game_state):
     #получаем данные о текущей комнате
     current_room_name = game_state['current_room']
@@ -25,3 +26,24 @@ def describe_current_room(game_state):
     #сообщение о загадке
     if room_data['puzzle']:
         print("Здесь загадка (используй комманду solve).")
+
+def solve_puzzle(game_state):
+    """
+    Решение головоломок
+    """
+
+    current_room_name = game_state['current_room']
+    room_data = ROOMS[current_room_name]
+
+    if room_data['puzzle'] == None:
+        print("Загадок здесь нет")
+        return
+    else:
+        question, correct_answer = room_data['puzzle']
+        print(question)
+        answer = input("Ваш ответ: ")
+        if answer == correct_answer:
+            room_data['puzzle'] = None
+            print("Ура! Ответ правильный")
+        else:
+            print("Неверно, попробуйте снова")

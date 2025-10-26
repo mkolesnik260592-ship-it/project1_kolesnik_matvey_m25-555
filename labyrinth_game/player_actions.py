@@ -1,3 +1,7 @@
+from constants import ROOMS
+from utils import describe_current_room
+
+
 def show_inventory(game_state):
     """
     Отображает содержимое инвентаря игрока
@@ -21,24 +25,26 @@ def get_input(prompt="> "):
         print("\nВыход из игры.")
         return "quit"
 
-from constants import ROOMS
-from utils import describe_current_room
-
 def move_player(game_state, direction):
-
+    """
+    Реализует прередвижение
+    """
+    current_room_name = game_state['current_room'] #название текущей комнаты
     room_data = ROOMS[current_room_name] #получение данных комнаты
 
     if direction in room_data['exits']: #Проверка наличия направления
         new_room = room_data['exits'][direction]
         game_state['current_room'] = new_room
         game_state['steps_taken'] += 1 #текущее количество шагов
-
         describe_current_room(game_state) #показывает текущую комнату
-
     else:
         print("Нельзя пройти в этом направлении.")
 
 def take_item(game_state, item_name):
+    """
+    Пополнение инвентаря
+    """
+
     current_room_name = game_state['current_room'] #название текущей комнаты
     room_data = ROOMS[current_room_name]
 
@@ -48,3 +54,25 @@ def take_item(game_state, item_name):
         print(f'Вы подняли: {item_name}')
     else:
         print('Такого предмета здесь нет')
+
+def use_item(game_state, item_name):
+    """
+    Проверка на наличие предмета, уникальное дейсвие для предмета
+    """
+    if item_name not in game_state['player_inventory']:
+        print("У вас нет такого предмета")
+        return
+
+    match item_name:
+        case 'torch':
+            print("Стало светлее")
+        case 'sword':
+            print("Вы стали гораздо увереннее")
+        case 'bronze_box':
+            if 'rusty_key' in game_state['player_inventory']:
+                print("Пусто")
+            else:
+                game_state['player_inventory'].append('rusty_key')
+                game_state['player_inventory'].remove('bronze_box')
+        case _:
+            print("вы не знаете что с этим делать")
