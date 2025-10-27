@@ -44,7 +44,7 @@ ROOMS = {
     'secret_chamber': {
           'description': 'Потайная комната! Здесь хранятся древние артефакты.',
           'exits': {'east': 'library'},
-          'items': ['magic_crystal', 'ancient_scroll', 'rusty_key'],
+          'items': ['magic_crystal', 'ancient_scroll', 'rusty_key', 'treasure_key'],
           'puzzle': ('На стене: "Кто владеет знанием, тот владеет миром. Введите слово знание наоборот"', 'еиназн')
     }
 }

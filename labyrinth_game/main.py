@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 from player_actions import get_input, move_player, show_inventory, take_item, use_item
-from utils import describe_current_room, solve_puzzle
+from utils import attempt_open_treasure, describe_current_room, solve_puzzle
 
 
 def process_command(game_state, command):
@@ -21,7 +21,10 @@ def process_command(game_state, command):
         case "use":
             use_item(game_state, argument)
         case "solve":
-            solve_puzzle(game_state)
+            if game_state['current_room'] == 'treasure_room':
+                attempt_open_treasure(game_state)
+            else:
+                solve_puzzle(game_state)
         case "quit":
             game_state['game_over'] = True
         case _:

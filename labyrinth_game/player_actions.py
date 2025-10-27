@@ -44,6 +44,9 @@ def take_item(game_state, item_name):
     """
     Пополнение инвентаря
     """
+    if item_name == 'treasure_chest':
+        print("Вы не можете поднять сундук, он слишком тяжелый.")
+        return
 
     current_room_name = game_state['current_room'] #название текущей комнаты
     room_data = ROOMS[current_room_name]
