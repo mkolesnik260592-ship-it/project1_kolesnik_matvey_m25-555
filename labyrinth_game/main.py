@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
-from player_actions import get_input, move_player, show_inventory, take_item, use_item
-from utils import attempt_open_treasure, describe_current_room, show_help, solve_puzzle
+from labyrinth_game.constants import COMMANDS
+from labyrinth_game.player_actions import get_input, move_player, show_inventory, take_item, use_item
+from labyrinth_game.utils import attempt_open_treasure, describe_current_room, show_help, solve_puzzle
 
 
 def process_command(game_state, command):
@@ -10,6 +11,8 @@ def process_command(game_state, command):
     argument = " ".join(parts[1:]) if len(parts) > 1 else "" #получение аргумента
 
     match player_command:
+        case "north" | "south" | "east" | "west":
+            move_player(game_state, player_command)
         case "look":
             describe_current_room(game_state)
         case "inventory":
@@ -21,7 +24,7 @@ def process_command(game_state, command):
         case "use":
             use_item(game_state, argument)
         case "help":
-            show_help()
+            show_help(COMMANDS)
         case "solve":
             if game_state['current_room'] == 'treasure_room':
                 attempt_open_treasure(game_state)
