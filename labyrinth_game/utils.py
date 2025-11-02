@@ -125,8 +125,9 @@ def pseudo_random(seed, modulo):
     Вычисление псевдо рандома
     """
 
+    BIG_NUMBER = 43758.5453
     value = math.sin(seed*12.9898)
-    value *= 43758.5453
+    value *= BIG_NUMBER
     fractional_part = value - math.floor(value)
     scaled = int(fractional_part * modulo)
     return scaled
@@ -154,7 +155,8 @@ def random_event(game_state):
     """
     Генерация рандомного события
     """
-    if pseudo_random(seed=game_state['steps_taken'], modulo=10) == 0:
+    EVENT_PROBABILITY = 10
+    if pseudo_random(seed=game_state['steps_taken'], modulo=EVENT_PROBABILITY) == 0:
         event_type = pseudo_random(seed=game_state['steps_taken'] + 1, modulo=3)
         if event_type == 0:
             print("Вы нашли монетку")
