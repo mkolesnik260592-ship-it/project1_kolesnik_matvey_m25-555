@@ -62,11 +62,14 @@ def solve_puzzle(game_state):
                 game_state['player_inventory'].append('ancient_book_translator')
                 print("Вы получили ancient_book_translator")
             elif current_room_name == 'garden':
-                game_state['player_inventory'].append('pot')
-                print("Вы получили pot")
+                game_state['player_inventory'].append('treasure_key')
+                print("Несколько лепестков розы упали и превратились в золотой ключ. Скорее всего он открывает что то важное")
             elif current_room_name == 'secret_chamber':
-                game_state['player_inventory'].append('rusty_key')
-                print("Вы получили rusty_key")
+                if 'rusty_key' in game_state['player_inventory']:
+                    print("Назвав правильный ответ, вы увидели перед собой увесистый ржавый ключ, точно такой же, как у вас в кармане. Попытавшись достать копию из кармана, вы поняли что он пуст. Пожав плечами, вы положили новый (или старый ключ) обратно в карман")  # noqa: E501
+                else:
+                    game_state['player_inventory'].append('rusty_key')
+                    print("Вы получили rusty_key")
 
         else:
             print("Неверно, попробуйте снова")

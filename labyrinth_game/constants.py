@@ -30,7 +30,7 @@ ROOMS = {
           'puzzle': None
     },
     'treasure_room': {
-          'description': 'Комната, на столе большой сундук. Дверь заперта — нужен особый ключ.',
+          'description': 'Комната, на столе большой сундук. Он заперт — нужен особый ключ.',
           'exits': {'south': 'hall'},
           'items': ['treasure_chest'],
           'puzzle': ('Дверь защищена кодом. Введите код (подсказка: это число пятикратного шага, 2*5= ? )', '10')
@@ -44,7 +44,7 @@ ROOMS = {
     'secret_chamber': {
           'description': 'Потайная комната! Здесь хранятся древние артефакты.',
           'exits': {'east': 'library'},
-          'items': ['magic_crystal', 'ancient_scroll', 'treasure_key'],
+          'items': ['magic_crystal', 'ancient_scroll'],
           'puzzle': ('На стене: "Кто владеет знанием, тот владеет миром. Введите слово знание наоборот"', 'еинанз')
     }
 }
