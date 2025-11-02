@@ -1,8 +1,8 @@
 [tool.poetry]
 name = "project1-kolesnik-matvey-m25-555"
 version = "0.1.0"
-description = ""
-authors = ["Matthew <mkolesnik260592@gmail.com>"]
+description = "Текстовая приключенческая игра 'Лабиринт сокровищ' - консольный квест с головоломками и исследованием лабиринта"
+authors = ["Матвей Колесник <mkolesnik260592@gmail.com>"]
 readme = "README.md"
 packages = [
     {include = "labyrinth_game" },
